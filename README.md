@@ -138,9 +138,3 @@ cd SolarSystemThreeJS
 npm install
 npm run dev
 Visit: http://localhost:5173
-
----
-
----
-
-Author : [Shatakshi](https://github.com/shatakshirajput)
