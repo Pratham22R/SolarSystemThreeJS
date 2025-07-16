@@ -1,0 +1,222 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL. Space/Cosmic Theme
+*/
+
+@layer base {
+  :root {
+    /* Deep space background */
+    --background: 235 39% 5%;
+    --foreground: 210 40% 98%;
+
+    /* Card surfaces with cosmic glow */
+    --card: 235 39% 8%;
+    --card-foreground: 210 40% 98%;
+
+    /* Popover with nebula effect */
+    --popover: 235 39% 8%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Stellar primary colors */
+    --primary: 262 83% 70%;
+    --primary-foreground: 235 39% 5%;
+    --primary-glow: 262 83% 85%;
+
+    /* Cosmic secondary */
+    --secondary: 200 98% 50%;
+    --secondary-foreground: 235 39% 5%;
+    --secondary-glow: 200 98% 70%;
+
+    /* Muted cosmic dust */
+    --muted: 235 39% 15%;
+    --muted-foreground: 217 91% 80%;
+
+    /* Accent nebula */
+    --accent: 280 100% 60%;
+    --accent-foreground: 235 39% 5%;
+    --accent-glow: 280 100% 80%;
+
+    /* Destructive supernova */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI elements */
+    --border: 235 39% 20%;
+    --input: 235 39% 15%;
+    --ring: 262 83% 70%;
+
+    --radius: 0.75rem;
+
+    /* Solar system colors */
+    --sun: 45 100% 60%;
+    --mercury: 25 30% 60%;
+    --venus: 30 80% 70%;
+    --earth: 195 100% 50%;
+    --mars: 15 85% 55%;
+    --jupiter: 30 60% 45%;
+    --saturn: 45 40% 65%;
+    --uranus: 180 60% 70%;
+    --neptune: 240 80% 60%;
+
+    /* Gradients for cosmic effects */
+    --gradient-cosmic: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 50%, hsl(var(--secondary)) 100%);
+    --gradient-nebula: radial-gradient(ellipse at center, hsl(var(--primary-glow) / 0.3) 0%, transparent 70%);
+    --gradient-stellar: linear-gradient(45deg, hsl(var(--secondary)) 0%, hsl(var(--primary)) 100%);
+    
+    /* Animations and transitions */
+    --transition-cosmic: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-stellar: all 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Shadows with cosmic glow */
+    --shadow-cosmic: 0 0 20px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.1);
+    --shadow-stellar: 0 0 30px hsl(var(--secondary) / 0.4), 0 0 80px hsl(var(--secondary) / 0.2);
+    --shadow-nebula: 0 0 40px hsl(var(--accent) / 0.5), 0 0 100px hsl(var(--accent) / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  /* Custom scrollbar for cosmic theme */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted/20;
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-primary/60;
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/80;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/30;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+
+  /* Custom range slider styles */
+  .slider {
+    -webkit-appearance: none;
+    appearance: none;
+    @apply bg-muted rounded-lg cursor-pointer;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    @apply bg-primary cursor-pointer;
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+    transition: all 0.2s ease;
+  }
+
+  .slider::-webkit-slider-thumb:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.8);
+    transform: scale(1.1);
+  }
+
+  .slider::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    @apply bg-primary cursor-pointer;
+    border: none;
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+    transition: all 0.2s ease;
+  }
+
+  .slider::-moz-range-thumb:hover {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.8);
+    transform: scale(1.1);
+  }
+
+  /* Ensure proper dark mode for canvas */
+  canvas {
+    @apply bg-transparent;
+  }
+}
